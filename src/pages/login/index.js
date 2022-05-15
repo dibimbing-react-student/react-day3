@@ -1,9 +1,59 @@
-import React from 'react'
+import React, { useRef, useState } from "react";
 
 const Login = () => {
-  return (
-    <div>Login</div>
-  )
-}
+    const nameInput = useRef(null);
+    const [formInputLogin, setFormInputLogin] = useState({
+        name: "",
+        password: "",
+    });
+    const submitName = () => {
+        // console.log(nameInput.current.value);
+        console.log(formInputLogin, "submit");
+    };
 
-export default Login
+    const onChangeName = (event) => {
+        // console.log(event.target.value)
+        setFormInputLogin({ ...formInputLogin, name: event.target.value });
+        console.log(formInputLogin.name);
+    };
+
+    const onChangePassword = (event) => {
+        // console.log(event.target.value)
+        setFormInputLogin({ ...formInputLogin, password: event.target.value });
+        console.log(formInputLogin.password);
+    };
+
+    return (
+        <div>
+            {/* <h2>Uncontrolled component</h2>
+            <label>
+                Name:
+                <input type="text" ref={nameInput} />
+            </label>
+            <br />
+            <button onClick={submitName}>Submit</button> */}
+
+            <h2>Controlled component</h2>
+            <label>
+                Name:
+                <input
+                    type="text"
+                    value={formInputLogin.name}
+                    onChange={(event) => onChangeName(event)}
+                />
+            </label>
+            <label>
+                Password:
+                <input
+                    type="password"
+                    value={formInputLogin.password}
+                    onChange={(event) => onChangePassword(event)}
+                />
+            </label>
+            <br />
+            <button onClick={submitName}>Submit</button>
+        </div>
+    );
+};
+
+export default Login;
