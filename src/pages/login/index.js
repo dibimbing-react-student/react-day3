@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import style from '../../styles/Button.module.css'
 
 const Login = () => {
     const nameInput = useRef(null);
@@ -23,6 +24,8 @@ const Login = () => {
         console.log(formInputLogin.password);
     };
 
+    // const styleHeader = { color: "blue", fontSize: "40px" };
+
     return (
         <div>
             {/* <h2>Uncontrolled component</h2>
@@ -33,7 +36,8 @@ const Login = () => {
             <br />
             <button onClick={submitName}>Submit</button> */}
 
-            <h2>Controlled component</h2>
+            {/* <h2>Controlled component</h2> */}
+            <h1 className="styleHeader">Login</h1>
             <label>
                 Name:
                 <input
@@ -51,7 +55,7 @@ const Login = () => {
                 />
             </label>
             <br />
-            <button onClick={submitName}>Submit</button>
+            <button className={style.btn} onClick={submitName}>Submit</button>
         </div>
     );
 };
