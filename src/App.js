@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
-import './styles/index.css'
+import './styles/index.scss'
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/header";
 import Content from "./pages/content";
